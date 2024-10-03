@@ -27,10 +27,27 @@ hr {
   border-width: 2px; /* Aumenta a espessura da linha */
 }
 
+/* Adicionando a barra de rolagem na lista */
 ul {
   display: flex;
   flex-direction: column-reverse;
   margin-bottom: 20px;
+  max-height: 400px; /* Limita a altura da lista */
+  overflow-y: auto; /* Habilita a rolagem quando houver muitos itens */
+}
+
+/* Personalizando a barra de rolagem */
+ul::-webkit-scrollbar {
+  width: 10px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: rgba(139, 14, 223, 0.8); /* Cor da barra de rolagem */
+  border-radius: 10px;
+}
+
+ul::-webkit-scrollbar-track {
+  background-color: lightgray; /* Cor de fundo da barra */
 }
 
 .header button {
