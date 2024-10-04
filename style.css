@@ -54,11 +54,11 @@ ul::-webkit-scrollbar-track {
   position: absolute;
   right: 18%;
   margin-top: -30px;
-} 
+}
 
 .header i {
-  font-size: 22px;
-} 
+  font-size: 24px;
+}
 
 .to-do {
   margin-top: 40px;
@@ -66,11 +66,17 @@ ul::-webkit-scrollbar-track {
 }
 
 .textInsert {
-  border: none;
   padding: 10px;
   border-radius: 10px;
-  outline: none;
+  border: 1px solid #ccc; /* Cor da borda */
   width: 90%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+}
+
+.textInsert:focus {
+  outline: none;
+  border-color: rgba(139, 14, 223, 0.8); /* Cor de borda ao focar */
+  box-shadow: 0px 0px 5px rgba(139, 14, 223, 0.8); /* Realce ao focar */
 }
 
 .divInsert {
@@ -79,6 +85,26 @@ ul::-webkit-scrollbar-track {
   border-radius: 10px;
   display: flex;
   box-shadow: 6px 5px 10px 0px grey;
+}
+
+.categorySelect {
+  flex: 1; /* Ocupa todo o espaço disponível dentro da div */
+  min-width: 119px; /* Largura mínima para garantir legibilidade em telas pequenas */
+  max-width: 121px; /* Largura máxima para telas maiores */
+  padding: 10px; /* Espaço interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  border: 1px solid #ccc; /* Cor da borda */
+  font-size: 16px; /* Tamanho da fonte */
+  background-color: white; /* Cor de fundo */
+  color: #333; /* Cor do texto */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+  margin-left: 10px; /* Espaçamento à esquerda */
+}
+
+.categorySelect:focus {
+  outline: none;
+  border-color: rgba(139, 14, 223, 0.8); /* Cor de borda ao focar */
+  box-shadow: 0px 0px 5px rgba(139, 14, 223, 0.8); /* Realce ao focar */
 }
 
 button {
@@ -132,50 +158,48 @@ li {
   text-decoration: line-through;
 }
 
-@media (max-width: 775px) { 
-  body {
-    background-size: cover;
-    background-position: center;
+@media (max-width: 775px) {
+  .to-do {
+    width: 80%;
   }
-
-  input {
+  .header button {
+    right: 15%;
+  }
+  .textInsert {
     width: 70%;
   }
-
-  .divInsert button {
-    width: 30%;
+  .categorySelect {
+    width: 40%;
   }
-
-  i {
-    font-size: 30px;
-    padding: 0;
+  button {
+    width: 10%;
   }
-
-  p {
-    font-size: x-large;
+  .bx-plus {
+    margin-left: 5px;
   }
 }
 
-@media (max-width: 380px) {
-  body {
-    background-size: contain;
-    background-position: center;
+@media (max-width: 480px) {
+  .to-do {
+    width: 90%;
   }
-
-  input {
-    width: 70%; /* Mantém a consistência com o media query maior */
+  .header button {
+    right: 10%;
   }
-
-  .divInsert button {
-    width: 30%; /* Mantém a consistência com o media query maior */
+  .textInsert {
+    width: 60%;
   }
-
-  i {
-    font-size: 30px; /* Mantém a consistência */
-    padding: 0;
+  .categorySelect {
+    width: 35%;
   }
-
+  button {
+    width: 8%;
+  }
   p {
-    font-size: x-large; /* Mantém a consistência */
+    font-size: large;
+  }
+  .bx-plus {
+    font-size: 26px;
+    margin-left: 3px;
   }
 }

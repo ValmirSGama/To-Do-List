@@ -1,52 +1,65 @@
-const texto = document.querySelector('input')
-const btnInsert = document.querySelector('.divInsert button')
-const btnDeleteAll = document.querySelector('.header button')
-const ul = document.querySelector('ul')
+const texto = document.querySelector('.textInsert');
+const btnInsert = document.querySelector('.divInsert button');
+const btnDeleteAll = document.querySelector('.header button');
+const ul = document.querySelector('ul');
+const categorySelect = document.getElementById('categorySelect');
 
-var itensDB = []
+var itensDB = [];
 
 btnDeleteAll.onclick = () => {
-  itensDB = []
-  updateDB()
-}
+  const selectedCategory = categorySelect.value;
+
+  // Filtra para manter apenas os itens que não pertencem à categoria atual
+  itensDB = itensDB.filter(item => item.category !== selectedCategory);
+  updateDB();
+};
 
 texto.addEventListener('keypress', e => {
   if (e.key == 'Enter' && texto.value != '') {
-    setItemDB()
+    setItemDB();
   }
-})
+});
 
 btnInsert.onclick = () => {
   if (texto.value != '') {
-    setItemDB()
+    setItemDB();
   }
-}
+};
+
+// Atualiza a lista de itens sempre que a categoria selecionada mudar
+categorySelect.addEventListener('change', loadItens);
 
 function setItemDB() {
   if (itensDB.length >= 200) {
-    alert('Limite máximo de 200 itens atingido!')
-    return
+    alert('Limite máximo de 200 itens atingido!');
+    return;
   }
 
-  itensDB.push({ 'item': texto.value, 'status': '' })
-  updateDB()
+  // Adiciona a nova tarefa com a categoria selecionada
+  itensDB.push({ 'item': texto.value, 'status': '', 'category': categorySelect.value });
+  updateDB();
 }
 
 function updateDB() {
-  localStorage.setItem('todolist', JSON.stringify(itensDB))
-  loadItens()
+  localStorage.setItem('todolist', JSON.stringify(itensDB));
+  loadItens();
 }
 
 function loadItens() {
-  ul.innerHTML = "";
-  itensDB = JSON.parse(localStorage.getItem('todolist')) ?? []
-  itensDB.forEach((item, i) => {
-    insertItemTela(item.item, item.status, i)
-  })
+  ul.innerHTML = '';
+  itensDB = JSON.parse(localStorage.getItem('todolist')) ?? [];
+
+  // Filtra os itens com base na categoria selecionada
+  const selectedCategory = categorySelect.value;
+  const filteredItems = itensDB.filter(item => item.category === selectedCategory);
+
+  filteredItems.forEach((item) => {
+    insertItemTela(item.item, item.status, itensDB.indexOf(item)); // Passa o índice do item original
+  });
 }
 
 function insertItemTela(text, status, i) {
-  const li = document.createElement('li')
+  const li = document.createElement('li');
   
   li.innerHTML = `
     <div class="divLi">
@@ -54,32 +67,26 @@ function insertItemTela(text, status, i) {
       <span data-si=${i}>${text}</span>
       <button onclick="removeItem(${i})" data-i=${i}><i class='bx bx-trash'></i></button>
     </div>
-    `
-  ul.appendChild(li)
+    `;
+  ul.appendChild(li);
 
   if (status) {
-    document.querySelector(`[data-si="${i}"]`).classList.add('line-through')
+    document.querySelector(`[data-si="${i}"]`).classList.add('line-through');
   } else {
-    document.querySelector(`[data-si="${i}"]`).classList.remove('line-through')
+    document.querySelector(`[data-si="${i}"]`).classList.remove('line-through');
   }
 
-  texto.value = ''
+  texto.value = '';
 }
 
 function done(chk, i) {
-
-  if (chk.checked) {
-    itensDB[i].status = 'checked' 
-  } else {
-    itensDB[i].status = '' 
-  }
-
-  updateDB()
+  itensDB[i].status = chk.checked ? 'checked' : '';
+  updateDB();
 }
 
 function removeItem(i) {
-  itensDB.splice(i, 1)
-  updateDB()
+  itensDB.splice(i, 1);
+  updateDB();
 }
 
-loadItens()
+loadItens();
