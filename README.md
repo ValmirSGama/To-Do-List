@@ -8,14 +8,17 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/ValmirSGama/To-Do-List)
 ![GitHub repo size](https://img.shields.io/github/repo-size/ValmirSGama/To-Do-List)
 
-Este é um projeto de uma aplicação simples e eficiente de **lista de tarefas** (To-Do List), desenvolvida com o objetivo de facilitar o gerenciamento e a organização de atividades diárias.
+Este é um projeto de uma aplicação simples e eficiente de lista de tarefas (To-Do List), desenvolvida com o objetivo de facilitar o gerenciamento e a organização de atividades diárias.
 
 ## Características Principais
 
-- **Adicionar Tarefas**: Permite que o usuário adicione novas tarefas facilmente.
-- **Marcar como Concluída**: Tarefas podem ser marcadas como concluídas com um simples clique, ajudando a acompanhar o progresso.
-- **Remover Tarefas**: Tarefas podem ser removidas quando completadas ou não forem mais necessárias.
-- **Interface Simples e Intuitiva**: A interface foi desenvolvida para ser limpa e fácil de usar, permitindo que o usuário se concentre nas suas tarefas.
+- **Adicionar Tarefas:** Permite que o usuário adicione novas tarefas facilmente.
+- **Marcar como Concluída:** Tarefas podem ser marcadas como concluídas com um simples clique, ajudando a acompanhar o progresso.
+- **Remover Tarefas:** Tarefas podem ser removidas quando completadas ou não forem mais necessárias.
+- **Interface Simples e Intuitiva:** A interface foi desenvolvida para ser limpa e fácil de usar, permitindo que o usuário se concentre nas suas tarefas.
+- **Categoria de Tarefas:** O usuário pode organizar as tarefas por categorias para facilitar o gerenciamento de diferentes tipos de atividades.
+- **Barra de Rolagem Personalizada:** Quando há muitas tarefas, uma barra de rolagem personalizada facilita a navegação.
+- **Responsividade:** A aplicação é completamente responsiva, garantindo uma boa experiência de uso em diferentes dispositivos, como smartphones e tablets.
   
 ## Tecnologias Utilizadas
 
