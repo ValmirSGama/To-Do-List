@@ -54,10 +54,46 @@ ul::-webkit-scrollbar-track {
   position: absolute;
   right: 18%;
   margin-top: -30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease; /* Suaviza o efeito de clique */
+}
+
+.header button:hover {
+  transform: scale(1.1); /* Aumenta levemente ao passar o mouse */
+}
+
+.header button:active {
+  transform: scale(0.9); /* Reduz o tamanho ao clicar para simular o pressionar */
 }
 
 .header i {
   font-size: 24px;
+  color: red;
+  transition: transform 0.2s ease, opacity 0.2s ease; /* Suaviza o efeito de clique */
+}
+
+.header i:hover {
+  transform: scale(1.1); /* Aumenta levemente ao passar o mouse */
+  color: darkred; /* Escurece a cor para realçar o ícone */
+}
+
+.header i:active {
+  transform: scale(0.9); /* Reduz o tamanho ao clicar para simular o pressionar */
+}
+
+.deleted {
+  animation: fadeOutScale 0.5s forwards; /* Aplica a animação de fade out com scale */
+}
+
+@keyframes fadeOutScale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5); /* Reduz para simular o desaparecimento */
+  }
 }
 
 .to-do {
@@ -89,8 +125,8 @@ ul::-webkit-scrollbar-track {
 
 .categorySelect {
   flex: 1; /* Ocupa todo o espaço disponível dentro da div */
-  min-width: 119px; /* Largura mínima para garantir legibilidade em telas pequenas */
-  max-width: 121px; /* Largura máxima para telas maiores */
+  min-width: 120px; /* Largura mínima para garantir legibilidade em telas pequenas */
+  max-width: 122px; /* Largura máxima para telas maiores */
   padding: 10px; /* Espaço interno */
   border-radius: 10px; /* Bordas arredondadas */
   border: 1px solid #ccc; /* Cor da borda */
@@ -122,6 +158,16 @@ button {
   border-radius: 50%;
   padding: 5px;
   color: white;
+  transition: transform 0.1s ease, box-shadow 0.1s ease; /* Transição suave */
+}
+
+.bx-plus:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra ao passar o mouse */
+}
+
+.bx-plus:active {
+  transform: scale(0.95); /* Leve redução do tamanho para simular um "pressionar" */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Redução da sombra ao clicar */
 }
 
 .divLi {
@@ -148,6 +194,32 @@ button {
 .divLi i {
   font-size: 22px;
   color: brown;
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  transition: transform 0.2s ease, opacity 0.2s ease; /* Transição suave para os efeitos */
+}
+
+.divLi i:hover {
+  transform: scale(1.1); /* Aumenta levemente ao passar o mouse */
+  color: darkred; /* Muda para um tom mais escuro de vermelho ao passar o mouse */
+}
+
+.divLi i:active {
+  transform: scale(0.9); /* Reduz levemente o tamanho ao clicar */
+}
+
+.deleted {
+  animation: fadeOutScale 0.5s forwards; /* Animação para desaparecer com escala */
+}
+
+@keyframes fadeOutScale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5); /* Reduz o ícone para 50% do tamanho e desaparece */
+  }
 }
 
 li {
